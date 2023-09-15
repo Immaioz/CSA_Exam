@@ -42,7 +42,7 @@ class Server:
                     break
 
         if (self._maximum_events >= 2):
-            self._calculate_statistics()
+            q_lenght, avg_time, util_rate = self._calculate_statistics()
             print("Total Arrivals: ", self._customers)
             if print_file:
                 file = open(file_path, "a")
@@ -54,32 +54,25 @@ class Server:
                 print("Thetha ", i ," = ", self._theta[i], file=file)
             for i in range(len(self._T)):
                 print("T(", i ,") = ", self._T[i], file=file)
-            print("Expected queue lenght =", self._expected_q_lenght, file=file)
-            print("Average waiting time =", self._avg_waiting_time, file=file)
-            print("Utilization rate =", self._utilization_rate, file=file)
+            print("Expected queue lenght =", q_lenght, file=file)
+            print("Average waiting time =", avg_time, file=file)
+            print("Utilization rate =", util_rate, file=file)
+            return q_lenght, avg_time, util_rate
+        if print_file:
             file.close()
 
     def _calculate_statistics(self):
-       
+        expected_q_lenght = []
+        avg_waiting_time = []
+        utilization_rate = []
         aux = 0
         for index in range (len(self._T)):
             aux += index * self._T[index]
-        self._expected_q_lenght.append(aux / self._time)
-        self._avg_waiting_time.append(np.mean(self._theta))
-        self._utilization_rate.append(1 - (self._T[0]/self._time))
+        expected_q_lenght.append(aux / self._time)
+        avg_waiting_time.append(np.mean(self._theta))
+        utilization_rate.append(1 - (self._T[0]/self._time))
 
-
-        self._expected_q_lenght = np.array(self._expected_q_lenght)
-        self._avg_waiting_time = np.array(self._avg_waiting_time)
-        self._utilization_rate = np.array(self._utilization_rate)
-
-
-
-        # queue_len_conf = st.t.interval(confidence, df=len(self._expected_q_lenght)-1, loc=np.mean(self._expected_q_lenght), scale=st.sem(self._expected_q_lenght))
-        # waiting_time_conf = st.t.interval(confidence, df=len(self._avg_waiting_time)-1, loc=np.mean(self._avg_waiting_time), scale=st.sem(self._avg_waiting_time))
-        # utilization_rate_conf = st.t.interval(confidence, df=len(self._utilization_rate)-1, loc=np.mean(self._utilization_rate), scale=st.sem(self._utilization_rate))
-
-
+        return expected_q_lenght[0], avg_waiting_time[0], utilization_rate[0]
 
 
     def _genArrival(self):
@@ -176,7 +169,4 @@ class Server:
         self._theta = []
         self._T = []
         self._last_event = 0
-        self._expected_q_lenght = []
-        self._avg_waiting_time = []
-        self._utilization_rate = []
 
