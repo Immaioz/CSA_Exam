@@ -17,10 +17,9 @@ usage: argmark [-h] [-n N] [-l L] [-u U] [-t] [-i I] [-c C] [-f]
 |`-N`||`0`|Select the number of arrivals to simulate|
 |`-L`||`1.0`|Add a custom lambda for exponential distribution for interarrival times|
 |`-U`||`1.0`|Add a custom mu for exponential distribution for service times|
-|`-T`|||Load events from example|
+|`-T`||`False`|Load events from example|
 |`-I`||`1`|Select the number of runs for the simulation|
 |`-C`||`0.95`|Select the confidence interval for generated results|
-|`-F`|||Print on file|
-
+|`-F`||`False`|Print on file|
 
 
