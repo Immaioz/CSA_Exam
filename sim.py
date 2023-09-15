@@ -3,6 +3,7 @@ from bisect import insort
 import statistics
 import scipy.stats as st
 from Event import event
+import sys
 
 class Server:
     ARRIVAL = "arrival"
@@ -12,7 +13,7 @@ class Server:
         self._lambda = scale_lambda
         self._mu = scale_mu
     
-    def run(self, max_arrival=0, test = False):
+    def run(self, max_arrival=0, test = False, print_file=False):
         self._instance()
         self._maximum_events = max_arrival
         file_path = "output.txt"
@@ -42,21 +43,22 @@ class Server:
 
         if (self._maximum_events >= 2):
             self._calculate_statistics()
+            print("Total Arrivals: ", self._customers)
+            if print_file:
+                file = open(file_path, "a")
+            else:
+                file= sys.stdout
+            print("calendar: \n", file=file)
+            print(self._calendar, file=file)
+            for i in range(len(self._theta)):
+                print("Thetha ", i ," = ", self._theta[i], file=file)
+            for i in range(len(self._T)):
+                print("T(", i ,") = ", self._T[i], file=file)
+            print("Expected queue lenght =", self._expected_q_lenght, file=file)
+            print("Average waiting time =", self._avg_waiting_time, file=file)
+            print("Utilization rate =", self._utilization_rate, file=file)
+            file.close()
 
-            with open(file_path, "a") as file:
-                print("Total Arrivals: ", self._customers)
-                print("calendar: \n")
-                print(self._calendar, file=file)
-
-                for i in range(len(self._theta)):
-                    print("Thetha ", i ," = ", self._theta[i], file=file)
-                for i in range(len(self._T)):
-                    print("T(", i ,") = ", self._T[i], file=file)
-
-                print("Expected queue lenght =", self._expected_q_lenght, file=file)
-                print("Average waiting time =", self._avg_waiting_time, file=file)
-                print("Utilization rate =", self._utilization_rate, file=file)
-        
     def _calculate_statistics(self):
        
         aux = 0
