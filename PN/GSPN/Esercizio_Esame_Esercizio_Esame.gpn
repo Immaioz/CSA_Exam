@@ -1,0 +1,829 @@
+Type: GSPN Model
+
+SubModel:
+Name: Esercizio_Esame
+Number of places: 0
+Number of immediate trans: 0
+Number of timed trans: 0
+Number of arcs:158
+Token displayed:false
+
+Place:
+Name: Process1
+Token: 1
+X, Y: 244,244
+Number of connected objects: 2
+Dest: T3
+Arc:arc152
+Dest: t0
+Arc:arc38
+vInputArc: [arc36, arc39, arc153]
+vOutputArc: [arc0, arc38, arc152]
+Place label:
+X, Y: 235,276
+Width, Height: 57,20
+Textwidth: 0
+
+Place:
+Name: Process1_CPU_Burst
+Token: 0
+X, Y: 404,244
+Number of connected objects: 0
+vInputArc: [arc1, arc154]
+vOutputArc: [arc2]
+Place label:
+X, Y: 360,276
+Width, Height: 127,20
+Textwidth: 0
+
+Place:
+Name: Process1_IO
+Token: 0
+X, Y: 564,244
+Number of connected objects: 2
+Dest: t1
+Arc:arc144
+Dest: T0
+Arc:arc143
+vInputArc: [arc3]
+vOutputArc: [arc4, arc143, arc144]
+Place label:
+X, Y: 544,276
+Width, Height: 79,20
+Textwidth: 0
+
+Place:
+Name: Process1_Turn
+Token: 1
+X, Y: 244,404
+Number of connected objects: 0
+vInputArc: [arc27]
+vOutputArc: [arc11, arc28]
+Place label:
+X, Y: 162,435
+Width, Height: 92,20
+Textwidth: 0
+
+Place:
+Name: Process2_Turn
+Token: 0
+X, Y: 404,404
+Number of connected objects: 0
+vInputArc: [arc12]
+vOutputArc: [arc13, arc26]
+Place label:
+X, Y: 423,435
+Width, Height: 92,20
+Textwidth: 0
+
+Place:
+Name: Process2
+Token: 1
+X, Y: 244,564
+Number of connected objects: 2
+Dest: t2
+Arc:arc40
+Dest: T2
+Arc:arc146
+vInputArc: [arc25, arc62, arc147]
+vOutputArc: [arc19, arc40, arc146]
+Place label:
+X, Y: 235,596
+Width, Height: 57,20
+Textwidth: 0
+
+Place:
+Name: Process2_CPU_Burst
+Token: 0
+X, Y: 404,564
+Number of connected objects: 0
+vInputArc: [arc21, arc148]
+vOutputArc: [arc22]
+Place label:
+X, Y: 360,596
+Width, Height: 127,20
+Textwidth: 0
+
+Place:
+Name: Process2_IO
+Token: 0
+X, Y: 564,564
+Number of connected objects: 1
+Dest: t3
+Arc:arc145
+vInputArc: [arc23]
+vOutputArc: [arc24, arc145]
+Place label:
+X, Y: 544,596
+Width, Height: 79,20
+Textwidth: 0
+
+Place:
+Name: Process2_Count
+Token: 0
+X, Y: 484,684
+Number of connected objects: 0
+vInputArc: [arc29]
+vOutputArc: [arc30]
+Place label:
+X, Y: 502,714
+Width, Height: 98,20
+Textwidth: 0
+
+Place:
+Name: Process1_Count
+Token: 0
+X, Y: 484,164
+Number of connected objects: 0
+vInputArc: [arc6]
+vOutputArc: [arc7]
+Place label:
+X, Y: 505,196
+Width, Height: 98,20
+Textwidth: 0
+
+Place:
+Name: Process1_End
+Token: 0
+X, Y: 484,4
+Number of connected objects: 0
+vInputArc: [arc8]
+vOutputArc: null
+Place label:
+X, Y: 518,10
+Width, Height: 86,20
+Textwidth: 0
+
+Place:
+Name: Process2_End
+Token: 0
+X, Y: 484,844
+Number of connected objects: 0
+vInputArc: [arc31]
+vOutputArc: null
+Place label:
+X, Y: 460,876
+Width, Height: 86,20
+Textwidth: 0
+
+Place:
+Name: Prcoess1_Not_End
+Token: 1
+X, Y: 364,44
+Number of connected objects: 2
+Dest: t1
+Arc:arc149
+Dest: T2
+Arc:arc150
+vInputArc: null
+vOutputArc: [arc149, arc150]
+Place label:
+X, Y: 326,76
+Width, Height: 114,20
+Textwidth: 0
+
+Place:
+Name: Process2_Not_End
+Token: 1
+X, Y: 364,724
+Number of connected objects: 2
+Dest: t3
+Arc:arc151
+Dest: T3
+Arc:arc155
+vInputArc: null
+vOutputArc: [arc151, arc155]
+Place label:
+X, Y: 326,756
+Width, Height: 114,20
+Textwidth: 0
+
+Immediate:
+Name: t0
+Width: 5
+Height: 32
+X, Y: 498,244
+Number of connected objects: 2
+Dest: Process1_Count
+Arc:arc6
+Dest: Process1_IO
+Arc:arc3
+vInputArc: [arc2, arc38]
+vOutputArc: [arc3, arc6]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 0.5
+Transition label:
+X, Y: 494,276
+Width, Height: 16,20
+Textwidth: 0
+
+Immediate:
+Name: t1
+Width: 32
+Height: 5
+X, Y: 484,98
+Number of connected objects: 1
+Dest: Process1_End
+Arc:arc8
+vInputArc: [arc7, arc144, arc149]
+vOutputArc: [arc8]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 0.5
+Transition label:
+X, Y: 494,116
+Width, Height: 16,20
+Textwidth: 0
+
+Immediate:
+Name: t2
+Width: 5
+Height: 32
+X, Y: 498,564
+Number of connected objects: 2
+Dest: Process2_IO
+Arc:arc23
+Dest: Process2_Count
+Arc:arc29
+vInputArc: [arc22, arc40]
+vOutputArc: [arc23, arc29]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 0.5
+Transition label:
+X, Y: 494,596
+Width, Height: 16,20
+Textwidth: 0
+
+Immediate:
+Name: t3
+Width: 32
+Height: 5
+X, Y: 484,778
+Number of connected objects: 1
+Dest: Process2_End
+Arc:arc31
+vInputArc: [arc30, arc145, arc151]
+vOutputArc: [arc31]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 0.5
+Transition label:
+X, Y: 494,796
+Width, Height: 16,20
+Textwidth: 0
+
+Timed:
+Name: T0
+Width: 14
+Height: 32
+X, Y: 333,244
+Number of connected objects: 3
+Dest: Process2_Turn
+Arc:arc12
+Dest: Process1
+Arc:arc36
+Dest: Process1_CPU_Burst
+Arc:arc1
+vInputArc: [arc0, arc11, arc13, arc143]
+vOutputArc: [arc1, arc12, arc36]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: 125
+Transition label:
+X, Y: 331,276
+Width, Height: 21,20
+Textwidth: 0
+
+Timed:
+Name: T1
+Width: 14
+Height: 32
+X, Y: 653,244
+Number of connected objects: 1
+Dest: Process1
+Arc:arc39
+vInputArc: [arc4]
+vOutputArc: [arc39]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: 0.83
+Transition label:
+X, Y: 651,276
+Width, Height: 21,20
+Textwidth: 0
+
+Timed:
+Name: T4
+Width: 14
+Height: 32
+X, Y: 333,564
+Number of connected objects: 3
+Dest: Process2_CPU_Burst
+Arc:arc21
+Dest: Process1_Turn
+Arc:arc27
+Dest: Process2
+Arc:arc62
+vInputArc: [arc19, arc26, arc28]
+vOutputArc: [arc21, arc27, arc62]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: 125
+Transition label:
+X, Y: 331,596
+Width, Height: 21,20
+Textwidth: 0
+
+Timed:
+Name: T5
+Width: 14
+Height: 32
+X, Y: 653,564
+Number of connected objects: 1
+Dest: Process2
+Arc:arc25
+vInputArc: [arc24]
+vOutputArc: [arc25]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: 1.25
+Transition label:
+X, Y: 651,596
+Width, Height: 21,20
+Textwidth: 0
+
+Timed:
+Name: T2
+Width: 14
+Height: 32
+X, Y: 333,484
+Number of connected objects: 2
+Dest: Process2_CPU_Burst
+Arc:arc148
+Dest: Process2
+Arc:arc147
+vInputArc: [arc146, arc150]
+vOutputArc: [arc147, arc148]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: 125
+Transition label:
+X, Y: 331,516
+Width, Height: 21,20
+Textwidth: 0
+
+Timed:
+Name: T3
+Width: 14
+Height: 32
+X, Y: 333,324
+Number of connected objects: 2
+Dest: Process1
+Arc:arc153
+Dest: Process1_CPU_Burst
+Arc:arc154
+vInputArc: [arc152, arc155]
+vOutputArc: [arc153, arc154]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: 125
+Transition label:
+X, Y: 331,356
+Width, Height: 21,20
+Textwidth: 0
+
+Arc:
+Name: arc0
+X1, Y1, X2, Y2: 275,255,333,255
+Type: Regular
+Multiplicity: 1
+Src: Process1
+Dest: T0
+ArcPoints: [java.awt.Point[x=275,y=255], java.awt.Point[x=333,y=255]]
+TypeIO: input
+
+Arc:
+Name: arc1
+X1, Y1, X2, Y2: 347,254,404,255
+Type: Regular
+Multiplicity: 1
+Src: T0
+Dest: Process1_CPU_Burst
+ArcPoints: [java.awt.Point[x=347,y=254], java.awt.Point[x=404,y=255]]
+TypeIO: output
+
+Arc:
+Name: arc2
+X1, Y1, X2, Y2: 435,255,498,255
+Type: Regular
+Multiplicity: 10
+Src: Process1_CPU_Burst
+Dest: t0
+ArcPoints: [java.awt.Point[x=435,y=255], java.awt.Point[x=498,y=255]]
+TypeIO: input
+
+Arc:
+Name: arc3
+X1, Y1, X2, Y2: 503,254,564,255
+Type: Regular
+Multiplicity: 1
+Src: t0
+Dest: Process1_IO
+ArcPoints: [java.awt.Point[x=503,y=254], java.awt.Point[x=564,y=255]]
+TypeIO: output
+
+Arc:
+Name: arc4
+X1, Y1, X2, Y2: 595,255,653,255
+Type: Regular
+Multiplicity: 1
+Src: Process1_IO
+Dest: T1
+ArcPoints: [java.awt.Point[x=595,y=255], java.awt.Point[x=653,y=255]]
+TypeIO: input
+
+Arc:
+Name: arc6
+X1, Y1, X2, Y2: 498,276,495,195
+Type: Regular
+Multiplicity: 1
+Src: t0
+Dest: Process1_Count
+ArcPoints: [java.awt.Point[x=498,y=276], java.awt.Point[x=495,y=195]]
+TypeIO: output
+
+Arc:
+Name: arc7
+X1, Y1, X2, Y2: 495,164,494,103
+Type: Regular
+Multiplicity: 2
+Src: Process1_Count
+Dest: t1
+ArcPoints: [java.awt.Point[x=495,y=164], java.awt.Point[x=494,y=103]]
+TypeIO: input
+
+Arc:
+Name: arc8
+X1, Y1, X2, Y2: 495,98,495,35
+Type: Regular
+Multiplicity: 1
+Src: t1
+Dest: Process1_End
+ArcPoints: [java.awt.Point[x=495,y=98], java.awt.Point[x=495,y=35]]
+TypeIO: output
+
+Arc:
+Name: arc11
+X1, Y1, X2, Y2: 264,404,333,263
+Type: Regular
+Multiplicity: 1
+Src: Process1_Turn
+Dest: T0
+ArcPoints: [java.awt.Point[x=264,y=404], java.awt.Point[x=333,y=263]]
+TypeIO: input
+
+Arc:
+Name: arc12
+X1, Y1, X2, Y2: 347,270,415,404
+Type: Regular
+Multiplicity: 1
+Src: T0
+Dest: Process2_Turn
+ArcPoints: [java.awt.Point[x=347,y=270], java.awt.Point[x=415,y=404]]
+TypeIO: output
+
+Arc:
+Name: arc13
+X1, Y1, X2, Y2: 410,406,343,276
+Type: Inhibitor
+Multiplicity: 1
+Src: Process2_Turn
+Dest: T0
+ArcPoints: [java.awt.Point[x=410,y=406], java.awt.Point[x=343,y=276]]
+Circle1, Circle2: 345,279
+
+Arc:
+Name: arc19
+X1, Y1, X2, Y2: 275,575,333,575
+Type: Regular
+Multiplicity: 1
+Src: Process2
+Dest: T4
+ArcPoints: [java.awt.Point[x=275,y=575], java.awt.Point[x=333,y=575]]
+TypeIO: input
+
+Arc:
+Name: arc21
+X1, Y1, X2, Y2: 347,574,404,575
+Type: Regular
+Multiplicity: 1
+Src: T4
+Dest: Process2_CPU_Burst
+ArcPoints: [java.awt.Point[x=347,y=574], java.awt.Point[x=404,y=575]]
+TypeIO: output
+
+Arc:
+Name: arc22
+X1, Y1, X2, Y2: 435,575,498,575
+Type: Regular
+Multiplicity: 4
+Src: Process2_CPU_Burst
+Dest: t2
+ArcPoints: [java.awt.Point[x=435,y=575], java.awt.Point[x=498,y=575]]
+TypeIO: input
+
+Arc:
+Name: arc23
+X1, Y1, X2, Y2: 503,574,564,575
+Type: Regular
+Multiplicity: 1
+Src: t2
+Dest: Process2_IO
+ArcPoints: [java.awt.Point[x=503,y=574], java.awt.Point[x=564,y=575]]
+TypeIO: output
+
+Arc:
+Name: arc24
+X1, Y1, X2, Y2: 595,575,653,575
+Type: Regular
+Multiplicity: 1
+Src: Process2_IO
+Dest: T5
+ArcPoints: [java.awt.Point[x=595,y=575], java.awt.Point[x=653,y=575]]
+TypeIO: input
+
+Arc:
+Name: arc25
+X1, Y1, X2, Y2: 655,564,264,564
+Type: Regular
+Multiplicity: 1
+Src: T5
+Dest: Process2
+ArcPoints: [java.awt.Point[x=655,y=564], java.awt.Point[x=655,y=534], java.awt.Point[x=264,y=534], java.awt.Point[x=264,y=564]]
+TypeIO: output
+
+Arc:
+Name: arc26
+X1, Y1, X2, Y2: 415,435,347,566
+Type: Regular
+Multiplicity: 1
+Src: Process2_Turn
+Dest: T4
+ArcPoints: [java.awt.Point[x=415,y=435], java.awt.Point[x=347,y=566]]
+TypeIO: input
+
+Arc:
+Name: arc27
+X1, Y1, X2, Y2: 333,572,264,435
+Type: Regular
+Multiplicity: 1
+Src: T4
+Dest: Process1_Turn
+ArcPoints: [java.awt.Point[x=333,y=572], java.awt.Point[x=264,y=435]]
+TypeIO: output
+
+Arc:
+Name: arc28
+X1, Y1, X2, Y2: 270,432,334,564
+Type: Inhibitor
+Multiplicity: 1
+Src: Process1_Turn
+Dest: T4
+ArcPoints: [java.awt.Point[x=270,y=432], java.awt.Point[x=334,y=564]]
+Circle1, Circle2: 332,560
+
+Arc:
+Name: arc29
+X1, Y1, X2, Y2: 499,596,502,684
+Type: Regular
+Multiplicity: 1
+Src: t2
+Dest: Process2_Count
+ArcPoints: [java.awt.Point[x=499,y=596], java.awt.Point[x=502,y=684]]
+TypeIO: output
+
+Arc:
+Name: arc30
+X1, Y1, X2, Y2: 502,715,502,778
+Type: Regular
+Multiplicity: 6
+Src: Process2_Count
+Dest: t3
+ArcPoints: [java.awt.Point[x=502,y=715], java.awt.Point[x=502,y=778]]
+TypeIO: input
+
+Arc:
+Name: arc31
+X1, Y1, X2, Y2: 501,783,502,844
+Type: Regular
+Multiplicity: 1
+Src: t3
+Dest: Process2_End
+ArcPoints: [java.awt.Point[x=501,y=783], java.awt.Point[x=502,y=844]]
+TypeIO: output
+
+Arc:
+Name: arc36
+X1, Y1, X2, Y2: 333,261,275,262
+Type: Regular
+Multiplicity: 1
+Src: T0
+Dest: Process1
+ArcPoints: [java.awt.Point[x=333,y=261], java.awt.Point[x=275,y=262]]
+TypeIO: output
+
+Arc:
+Name: arc38
+X1, Y1, X2, Y2: 255,244,487,250
+Type: Regular
+Multiplicity: 1
+Src: Process1
+Dest: t0
+ArcPoints: [java.awt.Point[x=255,y=244], java.awt.Point[x=255,y=220], java.awt.Point[x=426,y=220], java.awt.Point[x=487,y=250]]
+TypeIO: input
+
+Arc:
+Name: arc39
+X1, Y1, X2, Y2: 664,275,254,275
+Type: Regular
+Multiplicity: 1
+Src: T1
+Dest: Process1
+ArcPoints: [java.awt.Point[x=664,y=275], java.awt.Point[x=664,y=306], java.awt.Point[x=252,y=306], java.awt.Point[x=254,y=275]]
+TypeIO: output
+
+Arc:
+Name: arc40
+X1, Y1, X2, Y2: 263,595,490,592
+Type: Regular
+Multiplicity: 1
+Src: Process2
+Dest: t2
+ArcPoints: [java.awt.Point[x=263,y=595], java.awt.Point[x=263,y=636], java.awt.Point[x=470,y=636], java.awt.Point[x=490,y=592]]
+TypeIO: input
+
+Arc:
+Name: arc62
+X1, Y1, X2, Y2: 333,581,275,582
+Type: Regular
+Multiplicity: 1
+Src: T4
+Dest: Process2
+ArcPoints: [java.awt.Point[x=333,y=581], java.awt.Point[x=275,y=582]]
+TypeIO: output
+
+Arc:
+Name: arc143
+X1, Y1, X2, Y2: 564,264,347,261
+Type: Inhibitor
+Multiplicity: 1
+Src: Process1_IO
+Dest: T0
+ArcPoints: [java.awt.Point[x=564,y=264], java.awt.Point[x=347,y=261]]
+Circle1, Circle2: 350,261
+
+Arc:
+Name: arc144
+X1, Y1, X2, Y2: 570,247,497,103
+Type: Regular
+Multiplicity: 1
+Src: Process1_IO
+Dest: t1
+ArcPoints: [java.awt.Point[x=570,y=247], java.awt.Point[x=497,y=103]]
+TypeIO: input
+
+Arc:
+Name: arc145
+X1, Y1, X2, Y2: 576,595,503,778
+Type: Regular
+Multiplicity: 1
+Src: Process2_IO
+Dest: t3
+ArcPoints: [java.awt.Point[x=576,y=595], java.awt.Point[x=503,y=778]]
+TypeIO: input
+
+Arc:
+Name: arc146
+X1, Y1, X2, Y2: 268,566,333,500
+Type: Regular
+Multiplicity: 1
+Src: Process2
+Dest: T2
+ArcPoints: [java.awt.Point[x=268,y=566], java.awt.Point[x=333,y=500]]
+TypeIO: input
+
+Arc:
+Name: arc147
+X1, Y1, X2, Y2: 333,507,273,570
+Type: Regular
+Multiplicity: 1
+Src: T2
+Dest: Process2
+ArcPoints: [java.awt.Point[x=333,y=507], java.awt.Point[x=273,y=570]]
+TypeIO: output
+
+Arc:
+Name: arc148
+X1, Y1, X2, Y2: 347,502,411,566
+Type: Regular
+Multiplicity: 1
+Src: T2
+Dest: Process2_CPU_Burst
+ArcPoints: [java.awt.Point[x=347,y=502], java.awt.Point[x=411,y=566]]
+TypeIO: output
+
+Arc:
+Name: arc149
+X1, Y1, X2, Y2: 395,61,504,98
+Type: Regular
+Multiplicity: 1
+Src: Prcoess1_Not_End
+Dest: t1
+ArcPoints: [java.awt.Point[x=395,y=61], java.awt.Point[x=504,y=98]]
+TypeIO: input
+
+Arc:
+Name: arc150
+X1, Y1, X2, Y2: 382,75,343,484
+Type: Inhibitor
+Multiplicity: 1
+Src: Prcoess1_Not_End
+Dest: T2
+ArcPoints: [java.awt.Point[x=382,y=75], java.awt.Point[x=343,y=484]]
+Circle1, Circle2: 343,480
+
+Arc:
+Name: arc151
+X1, Y1, X2, Y2: 395,741,504,778
+Type: Regular
+Multiplicity: 1
+Src: Process2_Not_End
+Dest: t3
+ArcPoints: [java.awt.Point[x=395,y=741], java.awt.Point[x=504,y=778]]
+TypeIO: input
+
+Arc:
+Name: arc152
+X1, Y1, X2, Y2: 273,268,333,328
+Type: Regular
+Multiplicity: 1
+Src: Process1
+Dest: T3
+ArcPoints: [java.awt.Point[x=273,y=268], java.awt.Point[x=333,y=328]]
+TypeIO: input
+
+Arc:
+Name: arc153
+X1, Y1, X2, Y2: 333,337,268,273
+Type: Regular
+Multiplicity: 1
+Src: T3
+Dest: Process1
+ArcPoints: [java.awt.Point[x=333,y=337], java.awt.Point[x=268,y=273]]
+TypeIO: output
+
+Arc:
+Name: arc154
+X1, Y1, X2, Y2: 346,324,406,268
+Type: Regular
+Multiplicity: 1
+Src: T3
+Dest: Process1_CPU_Burst
+ArcPoints: [java.awt.Point[x=346,y=324], java.awt.Point[x=406,y=268]]
+TypeIO: output
+
+Arc:
+Name: arc155
+X1, Y1, X2, Y2: 376,724,338,356
+Type: Inhibitor
+Multiplicity: 1
+Src: Process2_Not_End
+Dest: T3
+ArcPoints: [java.awt.Point[x=376,y=724], java.awt.Point[x=338,y=356]]
+Circle1, Circle2: 338,359
+
+
+Output:
+Outputs created: 5
+Output name: Steady-state average number of tokens in the given place
+Time: null
+State: Process1
+Grid values: 0
+Output name: Steady-state average number of tokens in the given place
+Time: null
+State: Process1_CPU_Burst
+Grid values: 0
+Output name: Steady-state average number of tokens in the given place
+Time: null
+State: Process1_IO
+Grid values: 0
+Output name: Steady-state average number of tokens in the given place
+Time: null
+State: Process1_Turn
+Grid values: 0
+Output name: Steady-state average number of tokens in the given place
+Time: null
+State: Process1_End
+Grid values: 0
