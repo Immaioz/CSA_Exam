@@ -1,7 +1,6 @@
 import numpy as np
 from bisect import insort
 import statistics
-import scipy.stats as st
 from Event import event
 import sys
 
@@ -43,7 +42,7 @@ class Server:
 
         if (self._maximum_events >= 2):
             q_lenght, avg_time, util_rate = self._calculate_statistics()
-            print("Total Arrivals: ", self._customers)
+            #print("Total Arrivals: ", self._customers)
             if print_file:
                 file = open(file_path, "a")
             else:
@@ -85,12 +84,12 @@ class Server:
 
     def _EventHandler(self, e):
         self._time = e.event_time
-        print("Time: ", self._time)
+        #print("Time: ", self._time)
         #Gestisco arrival
         if(e.event_type == self.ARRIVAL):
             if(not self._busy):
                 a = event(e.id, e.arrival_time, self.ARRIVAL, e.arrival_time, e.service_time, e.interarrival_time)
-                print("Inserisco nel calendario l'evento ", a.event_type, "del processo con id ", a.id)
+                #print("Inserisco nel calendario l'evento ", a.event_type, "del processo con id ", a.id)
                 insort(self._calendar, a)
                 self._busy = True
                 d = event(e.id, e.event_time + e.service_time, self.DEPARTURE, e.arrival_time, e.service_time, e.interarrival_time)
@@ -104,7 +103,7 @@ class Server:
         #Gestisco Departure
         else:
             d = event(e.id, e.event_time, self.DEPARTURE, e.arrival_time, e.service_time, e.interarrival_time)
-            print("Inserisco nel calendario l'evento ", d.event_type, "del processo con id ", d.id)
+            #print("Inserisco nel calendario l'evento ", d.event_type, "del processo con id ", d.id)
             insort(self._calendar, d)
 
             self._update_Theta(d)

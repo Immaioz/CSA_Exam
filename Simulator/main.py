@@ -27,11 +27,11 @@ if (args.i or args.n):
         q_lenght.append(q)
         avg_time.append(time)
         utilization_rate.append(util)
-        if args.c :
+    if args.c :
 
-            queue_len_conf = st.t.interval(args.c, df=len(q_lenght)-1, loc=np.mean(q_lenght), scale=st.sem(q_lenght))
-            waiting_time_conf = st.t.interval(args.c, df=len(avg_time)-1, loc=np.mean(avg_time), scale=st.sem(avg_time))
-            utilization_rate_conf = st.t.interval(args.c, df=len(utilization_rate)-1, loc=np.mean(utilization_rate), scale=st.sem(utilization_rate))
+        queue_len_conf = st.t.interval(args.c, df=len(q_lenght)-1, loc=np.mean(q_lenght), scale=st.sem(q_lenght))
+        waiting_time_conf = st.t.interval(args.c, df=len(avg_time)-1, loc=np.mean(avg_time), scale=st.sem(avg_time))
+        utilization_rate_conf = st.t.interval(args.c, df=len(utilization_rate)-1, loc=np.mean(utilization_rate), scale=st.sem(utilization_rate))
 
 else:
     q_lenght, avg_time, util_rate = simulation.run(max_arrival= args.n, test = args.t, print_file=args.f)
@@ -39,6 +39,6 @@ else:
 
 if args.c:
     print(f"Confidence level {args.c}")
-    print(f"Average time wait: {waiting_time_conf[0]}. Confidence interval: {waiting_time_conf[1]}")
-    print(f"Utilization rate: {utilization_rate_conf[0]}. Confidence interval: {utilization_rate_conf[1]}")
-    print(f"Expected queue lenght: {queue_len_conf[0]}. Confidence interval: {queue_len_conf[1]}")
+    print(f"Average waiting time: {waiting_time_conf[0]}; Confidence interval: {waiting_time_conf[1]}")
+    print(f"Utilization rate: {utilization_rate_conf[0]}; Confidence interval: {utilization_rate_conf[1]}")
+    print(f"Expected queue lenght: {queue_len_conf[0]}; Confidence interval: {queue_len_conf[1]}")
